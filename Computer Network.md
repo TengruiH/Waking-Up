@@ -32,7 +32,7 @@
 ![三次握手](_v_images/20191129101827556_21212.png)
 
 - 第一次握手：Client将SYN置1，随机产生一个初始序列号seq发送给Server，进入SYN_SENT状态；
-- 第二次握手：Server收到Client的SYN=1之后，知道客户端请求建立连接，将自己的SYN置1，ACK置1，产生一个acknowledge number=sequence number+1，并随机产生一个自己的初始序列号，发送给客户端；进入SYN_RCVD状态；
+- 第二次握手：Server收到Client的SYN=1之后，知道客户端请求建立连接，将自己的SYN置1，ACK置1，产生一个acknowledge number=sequence number+1（这个意思是告诉客户端，我已经收到了以sequence number为序号的数据了，你发以sequence number+1为序号的数据包吧），并随机产生一个自己的初始序列号，发送给客户端；进入SYN_RCVD状态；
 - 第三次握手：客户端检查acknowledge number是否为序列号+1，ACK是否为1，检查正确之后将自己的ACK置为1，产生一个acknowledge number=服务器发的序列号+1，发送给服务器；进入ESTABLISHED状态；服务器检查ACK为1和acknowledge number为序列号+1之后，也进入ESTABLISHED状态；完成三次握手，连接建立。
 
 ##### TCP建立连接可以两次握手吗？为什么?
